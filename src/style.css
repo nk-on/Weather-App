@@ -10,33 +10,39 @@ body {
   justify-content: center;
   align-items: center;
 }
-:root{
-    --clr-white:#fff;
-    --gray-dark: #343a40;
+:root {
+  --clr-white: #fff;
+  --gray-dark: #343a40;
 }
 main {
   text-shadow: 2px 2px 1px black;
-  color: var(--clr-white) ;
-  border: 1px solid red;
+  color: var(--clr-white);
   width: 70%;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, 1fr);
 }
 
-main section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:10px
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-main .weather-data .date-and-time{
-    display: flex;
-    gap:5px;
+main .weather-data .date-and-time {
+  display: flex;
+  gap: 5px;
 }
-main .app-info form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main .app-info form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.switch-unit{
+    padding: 10px 30px;
+    color: var(--clr-white);
+    background-color: var(--gray-dark);
+    cursor: pointer;
+    border: none;
 }
