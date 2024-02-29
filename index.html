@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-app</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <section class="weather-data">
+      <h1 class="city">New York <span class="country">US</span></h1>
+      <div class="date-and-time">
+        <p class="date">29/02/2024</p>
+        <p class="time">8:42:22</p>
+      </div>
+      <h2 class="temperature">2C</h2>
+      <h2 class="weather-condition">Clouds</h2>
+      <div class="other-data">
+        <p class="humidity"></p>
+        <p class="wind-speed"></p>
+      </div>
+    </section>
+    <section class="app-info">
+      <h1>Current Weather</h1>
+      <form>
+        <label for="search-location">Search location</label>
+        <input type="search" name="search-location" id="search-location" />
+      </form>
+      <button class="switch-unit">Metric</button>
+    </section>
+  </body>
+</html>
