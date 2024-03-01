@@ -12,12 +12,21 @@ const windSpeedElement = document.querySelector('.wind-speed');
 const searchLocationInput = document.querySelector('#search-location');
 const switchUnitButton = document.querySelector('.switch-unit');
 const APIkey = '8f899912ad562b53558fa04e91536303';
+function renderTimeAndDate() {
+  const date = new Date();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
+  dateElement.textContent = date.toLocaleDateString();
+  timeElement.textContent = `${hour}:${minute}:${second}`;
+}
 function renderData(weatherData) {
   const {
     sys: { country },
   } = weatherData;
   const city = weatherData.name;
   locationElement.textContent = `${city},${country}`;
+  setInterval(renderTimeAndDate, 1000);
 }
 async function getWeather() {
   try {
