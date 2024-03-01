@@ -29,7 +29,6 @@ main section {
   align-items: center;
   gap: 10px;
 }
-
 main .weather-data .date-and-time {
   display: flex;
   gap: 5px;
@@ -39,10 +38,10 @@ main .app-info form {
   flex-direction: column;
   align-items: center;
 }
-.switch-unit{
-    padding: 10px 30px;
-    color: var(--clr-white);
-    background-color: var(--gray-dark);
-    cursor: pointer;
-    border: none;
+.switch-unit {
+  padding: 10px 30px;
+  color: var(--clr-white);
+  background-color: var(--gray-dark);
+  cursor: pointer;
+  border: none;
 }
