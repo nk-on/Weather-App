@@ -33,6 +33,10 @@ main .weather-data .date-and-time {
   display: flex;
   gap: 5px;
 }
+main .weather-data .other-data {
+  display: flex;
+  gap:5px;
+}
 main .app-info form {
   display: flex;
   flex-direction: column;

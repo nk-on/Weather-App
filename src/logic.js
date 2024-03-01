@@ -22,16 +22,30 @@ function renderTimeAndDate() {
 }
 function renderData(weatherData) {
   const {
+    main: { humidity },
+  } = weatherData;
+  const {
     sys: { country },
   } = weatherData;
+  const {
+    main: { temp },
+  } = weatherData;
+  const {
+    wind: { speed: windSpeed },
+  } = weatherData;
+  const weatherCondtion = weatherData.weather[0].main;
   const city = weatherData.name;
   locationElement.textContent = `${city},${country}`;
   setInterval(renderTimeAndDate, 1000);
+  temperatureElement.textContent = temp;
+  weatherConditionElement.textContent = weatherCondtion;
+  humidityElement.textContent = `Humidity:${humidity}%`;
+  windSpeedElement.textContent = windSpeed;
 }
 async function getWeather() {
   try {
     const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}&units=metric`
     );
     const res = await data.json();
     console.log(res);
