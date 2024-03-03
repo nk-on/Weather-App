@@ -11,6 +11,7 @@ const weatherCondtionIcon = document.querySelector('.icon');
 const humidityElement = document.querySelector('.humidity');
 const windSpeedElement = document.querySelector('.wind-speed');
 const searchLocationInput = document.querySelector('#search-location');
+const searchButton = document.querySelector('#Search-buton');
 const switchUnitButton = document.querySelector('.switch-unit');
 const APIkey = '8f899912ad562b53558fa04e91536303';
 function renderTimeAndDate() {
@@ -55,10 +56,10 @@ function renderData(weatherData, unit) {
   humidityElement.textContent = `Humidity:${humidity}%`;
   windSpeedElement.textContent = `${windSpeed} ${speedUnit}`;
 }
-async function getWeather(unit) {
+async function getWeather(location, unit) {
   try {
     const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}&units=${unit}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=${unit}`
     );
     const res = await data.json();
     console.log(res);
@@ -67,14 +68,30 @@ async function getWeather(unit) {
     alert(`Failed to fetch`);
   }
 }
-function switchUnit() {
+function searchByLocation(event) {
+  event.preventDefault();
+  const location = searchLocationInput.value;
+  console.log(location, switchUnitButton.textContent);
+  if (location.length === 0) {
+    return;
+  };
+  getWeather(location, switchUnitButton.textContent);
+}
+function switchUnit(event) {
+  event.preventDefault();
   const unit = this.textContent;
-  getWeather(unit);
+  getWeather(searchLocationInput.value, unit);
   if (this.textContent === 'Metric') {
     this.textContent = 'Imperial';
   } else {
     this.textContent = 'Metric';
   }
 }
-getWeather('metric');
+getWeather('London', 'metric');
 switchUnitButton.addEventListener('click', switchUnit);
+searchButton.addEventListener('click', searchByLocation);
+document.addEventListener('keyup', (e) => {
+  if (e.code === 'Enter') {
+    searchByLocation();
+  }
+});

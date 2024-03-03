@@ -43,10 +43,13 @@ main .weather-data .other-data {
 }
 main .app-info form {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap:20px;
 }
-.switch-unit {
+main .app-info form input{
+  padding: 10px 30px;
+}
+button {
   padding: 10px 30px;
   color: var(--clr-white);
   background-color: var(--gray-dark);
