@@ -20,7 +20,16 @@ function renderTimeAndDate() {
   dateElement.textContent = date.toLocaleDateString();
   timeElement.textContent = `${hour}:${minute}:${second}`;
 }
-function renderData(weatherData) {
+function renderData(weatherData, unit) {
+  let speedUnit;
+  let tempUnit;
+  if (unit === 'Metric') {
+    speedUnit = 'kph';
+    tempUnit = '°C';
+  } else {
+    speedUnit = 'mph';
+    tempUnit = '°F';
+  }
   const {
     main: { humidity },
   } = weatherData;
@@ -37,21 +46,31 @@ function renderData(weatherData) {
   const city = weatherData.name;
   locationElement.textContent = `${city},${country}`;
   setInterval(renderTimeAndDate, 1000);
-  temperatureElement.textContent = temp;
+  temperatureElement.textContent = `${temp} ${tempUnit}`;
   weatherConditionElement.textContent = weatherCondtion;
   humidityElement.textContent = `Humidity:${humidity}%`;
-  windSpeedElement.textContent = windSpeed;
+  windSpeedElement.textContent = `${windSpeed} ${speedUnit}`;
 }
-async function getWeather() {
+async function getWeather(unit) {
   try {
     const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}&units=${unit}`
     );
     const res = await data.json();
     console.log(res);
-    renderData(res);
+    renderData(res, unit);
   } catch {
     alert(`Failed to fetch`);
   }
 }
-getWeather();
+function switchUnit() {
+  const unit = this.textContent;
+  getWeather(unit);
+  if (this.textContent === 'Metric') {
+    this.textContent = 'Imperial';
+  } else {
+    this.textContent = 'Metric';
+  }
+}
+getWeather('metric');
+switchUnitButton.addEventListener('click', switchUnit);
