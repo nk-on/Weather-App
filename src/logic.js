@@ -73,18 +73,24 @@ function searchByLocation(event) {
   if (location.length === 0) {
     return;
   }
-  getWeather(location, switchUnitButton.textContent);
+  let unit;
+  if (switchUnitButton.textContent === 'Imperial') {
+    unit = 'Metric';
+  } else {
+    unit = 'Imperial';
+  }
+  getWeather(location, unit);
 }
 function switchUnit(event) {
   event.preventDefault();
   const unit = this.textContent;
   const location = locationElement.textContent;
-  getWeather(location, unit);
   if (this.textContent === 'Metric') {
     this.textContent = 'Imperial';
   } else {
     this.textContent = 'Metric';
   }
+  getWeather(location, unit);
 }
 function getCityByUsersLocation(position) {
   const {
