@@ -57,10 +57,9 @@ function renderData(weatherData, unit) {
   windSpeedElement.textContent = `${windSpeed} ${speedUnit}`;
 }
 async function getWeather(location, unit) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=${unit}`;
   try {
-    const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=${unit}`
-    );
+    const data = await fetch(url);
     const res = await data.json();
     console.log(res);
     renderData(res, unit);
