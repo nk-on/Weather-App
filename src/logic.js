@@ -79,7 +79,8 @@ function searchByLocation(event) {
 function switchUnit(event) {
   event.preventDefault();
   const unit = this.textContent;
-  getWeather(searchLocationInput.value, unit);
+  const location = locationElement.textContent;
+  getWeather(location, unit);
   if (this.textContent === 'Metric') {
     this.textContent = 'Imperial';
   } else {
