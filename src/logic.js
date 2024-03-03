@@ -71,10 +71,9 @@ async function getWeather(location, unit) {
 function searchByLocation(event) {
   event.preventDefault();
   const location = searchLocationInput.value;
-  console.log(location, switchUnitButton.textContent);
   if (location.length === 0) {
     return;
-  };
+  }
   getWeather(location, switchUnitButton.textContent);
 }
 function switchUnit(event) {
@@ -87,7 +86,24 @@ function switchUnit(event) {
     this.textContent = 'Metric';
   }
 }
-getWeather('London', 'metric');
+function getCityByUsersLocation(position) {
+  const {
+    coords: { latitude },
+  } = position;
+  const {
+    coords: { longitude },
+  } = position;
+  const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${APIkey}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const city = data[0].name;
+      getWeather(city, 'Metric');
+    });
+}
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(getCityByUsersLocation);
+}
 switchUnitButton.addEventListener('click', switchUnit);
 searchButton.addEventListener('click', searchByLocation);
 document.addEventListener('keyup', (e) => {
