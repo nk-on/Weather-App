@@ -33,6 +33,10 @@ main .weather-data .date-and-time {
   display: flex;
   gap: 5px;
 }
+.weather-condtion-cont{
+  display: flex;
+  align-items: center;
+}
 main .weather-data .other-data {
   display: flex;
   gap:5px;

@@ -7,6 +7,7 @@ const dateElement = document.querySelector('.date');
 const timeElement = document.querySelector('.time');
 const temperatureElement = document.querySelector('.temperature');
 const weatherConditionElement = document.querySelector('.weather-condition');
+const weatherCondtionIcon = document.querySelector('.icon');
 const humidityElement = document.querySelector('.humidity');
 const windSpeedElement = document.querySelector('.wind-speed');
 const searchLocationInput = document.querySelector('#search-location');
@@ -21,6 +22,8 @@ function renderTimeAndDate() {
   timeElement.textContent = `${hour}:${minute}:${second}`;
 }
 function renderData(weatherData, unit) {
+  const iconCode = weatherData.weather[0].icon;
+  const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`;
   let speedUnit;
   let tempUnit;
   if (unit === 'Metric') {
@@ -48,6 +51,7 @@ function renderData(weatherData, unit) {
   setInterval(renderTimeAndDate, 1000);
   temperatureElement.textContent = `${temp} ${tempUnit}`;
   weatherConditionElement.textContent = weatherCondtion;
+  weatherCondtionIcon.setAttribute('src', iconURL);
   humidityElement.textContent = `Humidity:${humidity}%`;
   windSpeedElement.textContent = `${windSpeed} ${speedUnit}`;
 }
