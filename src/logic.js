@@ -24,7 +24,6 @@ function renderTimeAndDate() {
   timeElement.textContent = `${hour}:${minute}:${second}`;
 }
 function setBackgroundImage(weatherCondtion) {
-  console.log(weatherCondtion);
   switch (weatherCondtion) {
     case 'Clouds':
       backgroundElement.style.backgroundImage = 'url("../assets/clouds.jpg")';
@@ -137,6 +136,6 @@ switchUnitButton.addEventListener('click', switchUnit);
 searchButton.addEventListener('click', searchByLocation);
 document.addEventListener('keyup', (e) => {
   if (e.code === 'Enter') {
-    searchByLocation();
+    searchByLocation(e);
   }
 });
