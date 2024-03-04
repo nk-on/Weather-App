@@ -1,7 +1,3 @@
-/* 1. App should display weather based on default location
-   2. App should disp0lay weather based user's entered location
-   3. User shoult be able to switch between units
-*/
 const backgroundElement = document.querySelector('body');
 const locationElement = document.querySelector('.location');
 const dateElement = document.querySelector('.date');
@@ -95,12 +91,7 @@ function searchByLocation(event) {
   if (location.length === 0) {
     return;
   }
-  let unit;
-  if (switchUnitButton.textContent === 'Imperial') {
-    unit = 'Metric';
-  } else {
-    unit = 'Imperial';
-  }
+  const unit = switchUnitButton.textContent === 'Imperial' ? 'Metric' : 'Imperial';
   getWeather(location, unit);
 }
 function switchUnit(event) {
