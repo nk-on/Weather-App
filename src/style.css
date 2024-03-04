@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 body {
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -29,20 +31,30 @@ main section {
   align-items: center;
   gap: 10px;
 }
-
 main .weather-data .date-and-time {
   display: flex;
   gap: 5px;
 }
-main .app-info form {
+.weather-condtion-cont{
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
-.switch-unit{
-    padding: 10px 30px;
-    color: var(--clr-white);
-    background-color: var(--gray-dark);
-    cursor: pointer;
-    border: none;
+main .weather-data .other-data {
+  display: flex;
+  gap:5px;
+}
+main .app-info form {
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
+main .app-info form input{
+  padding: 10px 30px;
+}
+button {
+  padding: 10px 30px;
+  color: var(--clr-white);
+  background-color: var(--gray-dark);
+  cursor: pointer;
+  border: none;
 }
