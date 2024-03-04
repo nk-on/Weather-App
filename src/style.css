@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 body {
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;

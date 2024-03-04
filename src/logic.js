@@ -2,6 +2,7 @@
    2. App should disp0lay weather based user's entered location
    3. User shoult be able to switch between units
 */
+const backgroundElement = document.querySelector('body');
 const locationElement = document.querySelector('.location');
 const dateElement = document.querySelector('.date');
 const timeElement = document.querySelector('.time');
@@ -21,6 +22,28 @@ function renderTimeAndDate() {
   const second = date.getSeconds();
   dateElement.textContent = date.toLocaleDateString();
   timeElement.textContent = `${hour}:${minute}:${second}`;
+}
+function setBackgroundImage(weatherCondtion) {
+  console.log(weatherCondtion);
+  switch (weatherCondtion) {
+    case 'Clouds':
+      backgroundElement.style.backgroundImage = 'url("../assets/clouds.jpg")';
+      break;
+    case 'Rain':
+      backgroundElement.style.backgroundImage = 'url("../assets/Rain.jpg")';
+      break;
+    case 'Thunderstorm':
+      backgroundElement.style.backgroundImage = 'url("../assets/thunder.jpg")';
+      break;
+    case 'Snow':
+      backgroundElement.style.backgroundImage = 'url("../assets/snow.jpg")';
+      break;
+    case 'Clear':
+      backgroundElement.style.backgroundImage = 'url("../assets/clear-sky.jpg")';
+      break;
+    default:
+      backgroundElement.style.backgroundImage = 'url("../assets/mist.jpg")';
+  }
 }
 function renderData(weatherData, unit) {
   const iconCode = weatherData.weather[0].icon;
@@ -55,13 +78,13 @@ function renderData(weatherData, unit) {
   weatherCondtionIcon.setAttribute('src', iconURL);
   humidityElement.textContent = `Humidity:${humidity}%`;
   windSpeedElement.textContent = `${windSpeed} ${speedUnit}`;
+  setBackgroundImage(weatherCondtion);
 }
 async function getWeather(location, unit) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=${unit}`;
   try {
     const data = await fetch(url);
     const res = await data.json();
-    console.log(res);
     renderData(res, unit);
   } catch {
     alert(`Failed to fetch`);
