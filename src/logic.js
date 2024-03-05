@@ -113,7 +113,7 @@ function getCityByUsersLocation(position) {
   const {
     coords: { longitude },
   } = position;
-  const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${APIkey}`;
+  const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${APIkey}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
