@@ -40,6 +40,7 @@ function setBackgroundImage(weatherCondtion) {
       backgroundElement.style.backgroundImage = 'url("../assets/mist.jpg")';
   }
 }
+// Displaying fetched JSON data inside weather-data section
 function renderData(weatherData, unit) {
   const iconCode = weatherData.weather[0].icon;
   const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`;
