@@ -35,20 +35,21 @@ main .weather-data .date-and-time {
   display: flex;
   gap: 5px;
 }
-.weather-condtion-cont{
+.weather-condtion-cont {
   display: flex;
   align-items: center;
 }
 main .weather-data .other-data {
   display: flex;
-  gap:5px;
+  gap: 5px;
 }
 main .app-info form {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap:20px;
+  gap: 20px;
 }
-main .app-info form input{
+main .app-info form input {
   padding: 10px 30px;
 }
 button {
@@ -57,4 +58,11 @@ button {
   background-color: var(--gray-dark);
   cursor: pointer;
   border: none;
+}
+@media only screen and (max-width: 600px) {
+  main{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
 }
