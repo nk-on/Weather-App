@@ -22,22 +22,22 @@ function renderTimeAndDate() {
 function setBackgroundImage(weatherCondtion) {
   switch (weatherCondtion) {
     case 'Clouds':
-      backgroundElement.style.backgroundImage = 'url("../assets/clouds.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/clouds.jpg")';
       break;
     case 'Rain':
-      backgroundElement.style.backgroundImage = 'url("../assets/Rain.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/Rain.jpg")';
       break;
     case 'Thunderstorm':
-      backgroundElement.style.backgroundImage = 'url("../assets/thunder.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/thunder.jpg")';
       break;
     case 'Snow':
-      backgroundElement.style.backgroundImage = 'url("../assets/snow.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/snow.jpg")';
       break;
     case 'Clear':
-      backgroundElement.style.backgroundImage = 'url("../assets/clear-sky.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/clear-sky.jpg")';
       break;
     default:
-      backgroundElement.style.backgroundImage = 'url("../assets/mist.jpg")';
+      backgroundElement.style.backgroundImage = 'url("assets/mist.jpg")';
   }
 }
 // Displaying fetched JSON data inside weather-data section
